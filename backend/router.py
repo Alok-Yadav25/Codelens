@@ -27,7 +27,7 @@ class ReviewRequest(BaseModel):
 # ── Response schemas ──────────────────────────────────────────────────────────
 
 class BugItem(BaseModel):
-    line: Any = "?"        # int or "?" — LLM doesn't always return a number
+    line: Any = "?"        
     description: str
 
 class FixItem(BaseModel):
@@ -40,8 +40,7 @@ class ReviewResponse(BaseModel):
     security_issues: list[str]
     improvements: list[str]
     fixes: list[FixItem] = []
-    # FIX: performance_scores is now INSIDE the class, not a dangling line
-    # at the bottom of the file like in your uploaded version
+   
     performance_scores: dict = {}
     severity: str
     summary: str
