@@ -1,6 +1,4 @@
-<img width="1440" height="817" alt="Screenshot 2026-06-07 at 4 49 54 PM" src="https://github.com/user-attachments/assets/3ba559e2-65ff-4704-9c36-c9a71041d742" />
-<img width="1434" height="764" alt="Screenshot 2026-06-07 at 4 49 38 PM" src="https://github.com/user-attachments/assets/92205679-c1e8-41de-bb1c-a6634bff8210" />
-<img width="1440" height="820" alt="Screenshot 2026-06-07 at 4 49 12 PM" src="https://github.com/user-attachments/assets/667f3918-55e7-4b9d-ab1f-45dc2e88ab91" />
+
 # 🔍 CodeLens — AI Code Reviewer
 
 
@@ -288,4 +286,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 
 Made with ❤️ by Alok Kumar Yadav
-
+<img width="1440" height="820" alt="Screenshot 2026-06-07 at 4 49 12 PM" src="https://github.com/user-attachments/assets/667f3918-55e7-4b9d-ab1f-45dc2e88ab91" />
+<img width="1434" height="764" alt="Screenshot 2026-06-07 at 4 49 38 PM" src="https://github.com/user-attachments/assets/92205679-c1e8-41de-bb1c-a6634bff8210" />
+<img width="1440" height="817" alt="Screenshot 2026-06-07 at 4 49 54 PM" src="https://github.com/user-attachments/assets/3ba559e2-65ff-4704-9c36-c9a71041d742" />
