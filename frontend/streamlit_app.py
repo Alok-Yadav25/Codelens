@@ -178,8 +178,7 @@ if review_clicked:
                 st.code(fix["suggested"], language=result["language"])
 
     # ── Performance chart ─────────────────────────────────────────────────
-    # FIX: Moved INSIDE `if review_clicked:` — was outside before, which
-    #      caused NameError on first load because `result` didn't exist yet.
+   
     scores = result.get("performance_scores", {})
     before = scores.get("before", {})
     after  = scores.get("after",  {})
