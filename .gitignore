@@ -1,0 +1,23 @@
+# Secret keys — NEVER push these to GitHub
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# HuggingFace model cache
+.cache/
+
+# macOS junk
+.DS_Store
+
+# VS Code
+.vscode/
