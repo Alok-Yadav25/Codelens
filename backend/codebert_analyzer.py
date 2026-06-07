@@ -12,18 +12,18 @@ LANGUAGE_SIGNATURES: dict[str, list[str]] = {
     "python":     [r"\bdef \w+\(", r"\bimport \w+", r"\bclass \w+\("],
     "javascript": [r"\bconst \w+", r"=>\s*{", r"\brequire\("],
    "cpp": [
-    r"#include\s*<",           # #include <iostream>
-    r"::\w+\(",                # std::sort(), vector::push_back()
-    r"\bstd::",                # std::cout, std::vector
-    r"\bint\s+main\s*\(",      # int main(
-    r"\bvector\s*<",           # vector<int>
-    r"\bcout\b",               # cout 
-    r"\bcin\b",                # cin >>
-    r"\bclass\s+\w+\s*\{",     # class Solution {
-    r"->",                     # pointer->member
-    r"\bnullptr\b",            # nullptr
-    r"\bauto\s+\w+\s*=",       # auto x =
-    r"\bpublic:",              # public: (class access modifier)
+    r"#include\s*<",           
+    r"::\w+\(",                
+    r"\bstd::",                
+    r"\bint\s+main\s*\(",      
+    r"\bvector\s*<",          
+    r"\bcout\b",                
+    r"\bcin\b",                
+    r"\bclass\s+\w+\s*\{",     
+    r"->",                     
+    r"\bnullptr\b",           
+    r"\bauto\s+\w+\s*=",       
+    r"\bpublic:",              
 ],
     "java":       [r"\bpublic\s+class\b", r"\bSystem\.out\.", r"@Override", r"HashMap<", r"new int\[\]", r"\bimport java\."],
     "go":         [r"\bfunc \w+\(", r":=", r'\bpackage\s+\w+'],
@@ -43,7 +43,7 @@ class CodeBERTAnalyzer:
     """
 
     def __init__(self):
-        # ✅ FIX: Read HF_TOKEN from environment (not hardcoded)
+      
         self.token = os.environ.get("HF_TOKEN")
         if not self.token:
             raise EnvironmentError(
@@ -101,10 +101,10 @@ class CodeBERTAnalyzer:
         Uses wait_for_model=True so we don't get 503 on cold starts.
         Returns a zero vector as a safe fallback if the API fails.
         """
-        truncated = code[:2000]  # API handles up to 512 tokens; roughly 2000 chars
+        truncated = code[:2000] 
         payload = {
             "inputs": truncated,
-            "options": {"wait_for_model": True},  # handles cold-start 503s
+            "options": {"wait_for_model": True}, 
         }
 
         try:
@@ -112,27 +112,26 @@ class CodeBERTAnalyzer:
                 HF_API_URL,
                 headers=self.headers,
                 json=payload,
-                timeout=30,  # HuggingFace cold starts can take ~20s
+                timeout=30,  
             )
         except requests.exceptions.RequestException as e:
             print(f"HuggingFace API request failed: {e}")
-            return [0.0] * 768  # safe fallback — review still works
+            return [0.0] * 768  
 
         if response.status_code != 200:
             print(f"HuggingFace API warning: {response.status_code} — {response.text[:200]}")
             return [0.0] * 768
 
-        # ✅ FIX: Handle both tensor shapes the API can return
         raw = response.json()
         try:
             if isinstance(raw, list) and isinstance(raw[0], list) and isinstance(raw[0][0], list):
-                token_vectors = raw[0]   # shape: [num_tokens, 768]
+                token_vectors = raw[0]   
             elif isinstance(raw, list) and isinstance(raw[0], list):
-                token_vectors = raw      # shape: [num_tokens, 768]
+                token_vectors = raw      
             else:
-                return [0.0] * 768       # unexpected shape
+                return [0.0] * 768       
 
-            # Mean pool across all token vectors → single 768-dim vector
+          
             num_tokens = len(token_vectors)
             pooled = [
                 sum(token_vectors[t][d] for t in range(num_tokens)) / num_tokens
