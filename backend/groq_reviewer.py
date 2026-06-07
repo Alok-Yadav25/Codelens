@@ -2,9 +2,7 @@ import os
 import json
 from groq import Groq
 
-# ── SINGLE system prompt definition ──────────────────────────────────────────
-# FIX: Your file had TWO closing triple-quotes, so the Rules block was
-#      sitting outside the string entirely — causing a SyntaxError on import.
+
 SYSTEM_PROMPT = """You are an expert code reviewer with deep knowledge of
 software security, best practices, and common bug patterns.
 
