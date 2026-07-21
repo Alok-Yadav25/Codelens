@@ -1,6 +1,10 @@
-
 # 🔍 CodeLens — AI Code Reviewer
 
+## 🌐 Live Demo
+
+**Try it now:** [codelens-alok-yadav-25.streamlit.app](https://codelens-alok-yadav-25.streamlit.app)
+
+> Note: the backend runs on a free HuggingFace Space, so the first request may take 20-30 seconds to wake up.
 
 ## 📌 Overview
 
@@ -150,7 +154,7 @@ This project is deployed using two free services:
 | Service | What it hosts | URL |
 |---|---|---|
 | HuggingFace Spaces | FastAPI backend | `https://YOUR_USERNAME-codelens-backend.hf.space` |
-| Streamlit Community Cloud | Streamlit frontend | `https://YOUR_APP.streamlit.app` |
+| Streamlit Community Cloud | Streamlit frontend | [codelens-alok-yadav-25.streamlit.app](https://codelens-alok-yadav-25.streamlit.app) |
 
 ### Deploy Backend → HuggingFace Spaces
 
@@ -164,7 +168,7 @@ git push hf main
 ```
 GROQ_API_KEY  = gsk_your_key
 HF_TOKEN      = hf_your_token
-ALLOWED_ORIGINS = https://YOUR_APP.streamlit.app
+ALLOWED_ORIGINS = https://codelens-alok-yadav-25.streamlit.app
 ```
 
 ### Deploy Frontend → Streamlit Cloud
@@ -286,6 +290,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 
 Made with ❤️ by Alok Kumar Yadav
-<img width="1440" height="820" alt="Screenshot 2026-06-07 at 4 49 12 PM" src="https://github.com/user-attachments/assets/667f3918-55e7-4b9d-ab1f-45dc2e88ab91" />
-<img width="1434" height="764" alt="Screenshot 2026-06-07 at 4 49 38 PM" src="https://github.com/user-attachments/assets/92205679-c1e8-41de-bb1c-a6634bff8210" />
-<img width="1440" height="817" alt="Screenshot 2026-06-07 at 4 49 54 PM" src="https://github.com/user-attachments/assets/3ba559e2-65ff-4704-9c36-c9a71041d742" />
+<img width="1440" height="820" alt="Screenshot 2026-06-07 at 4 49 12 PM" src="https://github.com/user-attachments/assets/667f3918-55e7-4b9d-ab1f-45dc2e88ab91" />
+<img width="1434" height="764" alt="Screenshot 2026-06-07 at 4 49 38 PM" src="https://github.com/user-attachments/assets/92205679-c1e8-41de-bb1c-a6634bff8210" />
+<img width="1440" height="817" alt="Screenshot 2026-06-07 at 4 49 54 PM" src="https://github.com/user-attachments/assets/3ba559e2-65ff-4704-9c36-c9a71041d742" />
